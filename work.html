@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahedi Hassan Nur - Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #090313;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      .card-3d-hover {
+        transition:
+          transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.5s ease;
+        transform-style: preserve-3d;
+      }
+      /* Desktop target hover effects only */
+      @media (min-width: 1024px) {
+        .card-3d-hover:hover {
+          transform: translateY(-5px) rotateX(6deg) rotateY(-6deg);
+          box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="text-white min-h-screen bg-[#0a0516] pb-20 relative overflow-x-hidden"
+  >
+    <div
+      class="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-900/10 blur-[80px] md:blur-[150px] rounded-full pointer-events-none"
+    ></div>
+
+    <div
+      id="toast"
+      class="fixed bottom-5 right-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-3 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2 font-medium border border-purple-400/20 text-sm max-w-[90vw]"
+    >
+      <i class="fa-solid fa-circle-check text-base"></i>
+      Email Address Copied!
+    </div>
+
+    <header
+      class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex justify-between items-center relative z-40 opacity-0 animate-fade-up"
+    >
+      <div
+        onclick="copyEmail()"
+        class="flex items-center gap-3 group cursor-pointer relative"
+        title="Click to copy email"
+      >
+        <div
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-purple-500 flex items-center justify-center font-bold text-lg sm:text-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text transition-transform duration-500 group-hover:rotate-[360deg]"
+        >
+          M
+        </div>
+        <span
+          id="email-text"
+          class="text-xs sm:text-sm text-gray-300 font-medium tracking-wide transition-colors group-hover:text-purple-400 flex items-center gap-1.5"
+        >
+          mhnur277@gmail.com
+          <i
+            class="fa-regular fa-copy text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-0.5 hidden sm:inline-block"
+          ></i>
+        </span>
+      </div>
+
+      <nav
+        class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold tracking-wide"
+      >
+        <a
+          href="./index.html"
+          class="text-gray-400 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full hover:after:shadow-[0_0_8px_#a855f7]"
+          >Home.</a
+        >
+        <a
+          href="#"
+          class="text-purple-400 border-b-2 border-purple-500 pb-1 shadow-[0_4px_12px_-4px_rgba(168,85,247,0.6)]"
+          >Work.</a
+        >
+        <a
+          href="./service.html"
+          class="text-gray-400 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full hover:after:shadow-[0_0_8px_#a855f7]"
+          >Services.</a
+        >
+        <a
+          href="./about.html"
+          class="text-gray-400 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full hover:after:shadow-[0_0_8px_#a855f7]"
+          >About.</a
+        >
+        <a
+          href="Hireme.html"
+          class="bg-gradient-to-r from-purple-600 to-indigo-600 px-5 py-2 sm:px-6 py-2.5 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 active:scale-95 active:translate-y-[2px] transition-all duration-300"
+          >Hire me!</a
+        >
+      </nav>
+
+      <button
+        onclick="toggleMobileMenu()"
+        class="md:hidden text-gray-300 hover:text-white p-2 focus:outline-none z-50"
+      >
+        <i
+          class="fa-solid fa-bars text-xl transition-transform duration-300"
+          id="menu-icon"
+        ></i>
+      </button>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-[#090313]/98 backdrop-blur-xl z-30 flex flex-col items-center justify-center gap-8 text-xl font-bold tracking-wider transform translate-x-full transition-transform duration-500 ease-in-out md:hidden"
+    >
+      <a
+        href="./index.html"
+        onclick="toggleMobileMenu()"
+        class="text-gray-400 hover:text-purple-400 transition-colors"
+        >Home.</a
+      >
+      <a
+        href="#"
+        onclick="toggleMobileMenu()"
+        class="text-purple-400 transition-colors"
+        >Work.</a
+      >
+      <a
+        href="./service.html"
+        onclick="toggleMobileMenu()"
+        class="text-gray-400 hover:text-purple-400 transition-colors"
+        >Services.</a
+      >
+      <a
+        href="./about.html"
+        onclick="toggleMobileMenu()"
+        class="text-gray-400 hover:text-purple-400 transition-colors"
+        >About.</a
+      >
+      <a
+        href="Hireme.html"
+        onclick="toggleMobileMenu()"
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 rounded-full font-bold shadow-lg shadow-purple-500/30 text-base mt-4"
+        >Hire me!</a
+      >
+    </div>
+
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-12 relative z-10 animate-fade-up perspective-1000"
+    >
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <h3
+          class="text-purple-500 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2"
+        >
+          My Portfolio
+        </h3>
+        <h2
+          class="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-500 text-transparent bg-clip-text"
+        >
+          Recent Case Studies & Works
+        </h2>
+        <p
+          class="text-gray-400 mt-3 sm:mt-4 text-xs sm:text-sm md:text-base leading-relaxed"
+        >
+          Here is a selection of my finest projects, crafted with a strong
+          emphasis on modern technology and user experience.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+      >
+        <div
+          class="flex flex-col border border-purple-900/20 bg-[#0c061a]/60 rounded-2xl overflow-hidden shadow-xl transition-all duration-500 group card-3d-hover cursor-pointer"
+        >
+          <div
+            class="relative aspect-video w-full overflow-hidden bg-purple-950/40 border-b border-purple-900/10"
+          >
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-600/10 to-indigo-600/10"
+            >
+              <i
+                class="fa-solid fa-laptop-code text-4xl sm:text-5xl text-purple-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:text-purple-400"
+              ></i>
+            </div>
+          </div>
+          <div
+            class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4"
+          >
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span
+                  class="text-[10px] sm:text-xs font-semibold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >Web Application</span
+                >
+                <div
+                  class="flex gap-2.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="#"
+                    class="hover:text-purple-400 transition-colors"
+                    title="Live Preview"
+                    ><i
+                      class="fa-solid fa-arrow-up-right-from-square text-xs sm:text-sm"
+                    ></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="hover:text-purple-400 transition-colors"
+                    title="GitHub Code"
+                    ><i class="fa-brands fa-github text-xs sm:text-sm"></i
+                  ></a>
+                </div>
+              </div>
+              <h4
+                class="text-lg sm:text-xl font-bold group-hover:text-purple-400 transition-colors duration-300"
+              >
+                E-Commerce Platform Dashboard
+              </h4>
+              <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                A real-time data tracking platform that visualizes user sales
+                data, inventory management, and customer insight analytics
+                through intuitive graphs.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span
+                class="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 bg-[#140b2a] border border-purple-900/30 text-gray-400 rounded-md"
+                >HTML5 / Tailwind</span
+              >
+              <span
+                class="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 bg-[#140b2a] border border-purple-900/30 text-gray-400 rounded-md"
+                >JavaScript</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col border border-purple-900/20 bg-[#0c061a]/60 rounded-2xl overflow-hidden shadow-xl transition-all duration-500 group card-3d-hover cursor-pointer"
+        >
+          <div
+            class="relative aspect-video w-full overflow-hidden bg-purple-950/40 border-b border-purple-900/10"
+          >
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-600/10 to-indigo-600/10"
+            >
+              <i
+                class="fa-solid fa-mobile-screen-button text-4xl sm:text-5xl text-purple-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:text-purple-400"
+              ></i>
+            </div>
+          </div>
+          <div
+            class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4"
+          >
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span
+                  class="text-[10px] sm:text-xs font-semibold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >UI/UX Redesign</span
+                >
+                <div
+                  class="flex gap-2.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="#"
+                    class="hover:text-purple-400 transition-colors"
+                    title="Live Preview"
+                    ><i
+                      class="fa-solid fa-arrow-up-right-from-square text-xs sm:text-sm"
+                    ></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="hover:text-purple-400 transition-colors"
+                    title="GitHub Code"
+                    ><i class="fa-brands fa-github text-xs sm:text-sm"></i
+                  ></a>
+                </div>
+              </div>
+              <h4
+                class="text-lg sm:text-xl font-bold group-hover:text-purple-400 transition-colors duration-300"
+              >
+                FinTech Mobile App Interface
+              </h4>
+              <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                A clean and minimalist mobile application interface designed for
+                digital wallets and payment gateways.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span
+                class="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 bg-[#140b2a] border border-purple-900/30 text-gray-400 rounded-md"
+                >Figma</span
+              >
+              <span
+                class="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 bg-[#140b2a] border border-purple-900/30 text-gray-400 rounded-md"
+                >UI Design</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl overflow-hidden shadow-xl shadow-purple-900/20 transition-all duration-500 hover:shadow-purple-500/40 group card-3d-hover cursor-pointer"
+        >
+          <div
+            class="relative aspect-video w-full overflow-hidden bg-black/20 border-b border-white/10"
+          >
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i
+                class="fa-solid fa-cubes text-4xl sm:text-5xl text-white/40 transition-transform duration-500 group-hover:scale-110 group-hover:text-white/60"
+              ></i>
+            </div>
+          </div>
+          <div
+            class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4"
+          >
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span
+                  class="text-[10px] sm:text-xs font-semibold text-white bg-white/20 px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >Featured Tool</span
+                >
+              </div>
+              <h4 class="text-lg sm:text-xl font-bold text-white">
+                Next-Gen Tools Grid
+              </h4>
+              <p class="text-purple-100 text-xs sm:text-sm leading-relaxed">
+                Advanced structural analysis model representation dashboard
+                template concept.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Smooth Copy Email using Toast Alert
+      function copyEmail() {
+        const email = "mhnur277@gmail.com";
+        navigator.clipboard
+          .writeText(email)
+          .then(() => {
+            const toast = document.getElementById("toast");
+            toast.classList.remove("translate-y-20", "opacity-0");
+            toast.classList.add("translate-y-0", "opacity-100");
+            setTimeout(() => {
+              toast.classList.remove("translate-y-0", "opacity-100");
+              toast.classList.add("translate-y-20", "opacity-0");
+            }, 2500);
+          })
+          .catch((err) => {
+            console.error("Failed to copy email: ", err);
+          });
+      }
+
+      // Responsive Mobile Hamburger Navigation Toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const icon = document.getElementById("menu-icon");
+
+        if (menu.classList.contains("translate-x-full")) {
+          menu.classList.remove("translate-x-full");
+          menu.classList.add("translate-x-0");
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
+        } else {
+          menu.classList.remove("translate-x-0");
+          menu.classList.add("translate-x-full");
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahedi Hassan Nur - Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #090313;
+      }
+      .card-3d-hover {
+        transition:
+          transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.5s ease;
+        transform-style: preserve-3d;
+      }
+      @media (min-width: 1024px) {
+        .card-3d-hover:hover {
+          transform: translateY(-8px) rotateX(2deg);
+          box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.2);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="text-white min-h-screen relative overflow-x-hidden bg-[#0a0516] pb-20"
+  >
+    <div
+      class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none"
+    ></div>
+
+    <header
+      class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex justify-between items-center relative z-40"
+    >
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <div
+          class="w-10 h-10 rounded-full border-2 border-purple-500 flex items-center justify-center font-bold text-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text"
+        >
+          M
+        </div>
+        <span class="hidden sm:block text-sm text-gray-300 font-medium"
+          >mhnur277@gmail.com</span
+        >
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a
+          href="./index.html"
+          class="text-gray-400 hover:text-white transition-colors"
+          >Home.</a
+        >
+        <a
+          href="./work.html"
+          class="text-gray-400 hover:text-white transition-colors"
+          >Work.</a
+        >
+        <a href="#" class="text-purple-400 border-b-2 border-purple-500 pb-1"
+          >Services.</a
+        >
+        <a
+          href="./about.html"
+          class="text-gray-400 hover:text-white transition-colors"
+          >About.</a
+        >
+        <a
+          href="Hireme.html"
+          class="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-2.5 rounded-full font-bold shadow-lg shadow-purple-500/20"
+          >Hire me!</a
+        >
+      </nav>
+
+      <button
+        onclick="toggleMobileMenu()"
+        id="menu-btn"
+        class="md:hidden text-white text-xl p-2 z-50"
+      >
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+      </button>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-[#090313]/98 backdrop-blur-xl z-30 flex flex-col items-center justify-center gap-8 text-xl font-bold transform translate-x-full transition-transform duration-500 md:hidden"
+    >
+      <a href="./index.html" onclick="toggleMobileMenu()" class="text-gray-400"
+        >Home.</a
+      >
+      <a href="./work.html" onclick="toggleMobileMenu()" class="text-gray-400"
+        >Work.</a
+      >
+      <a
+        href="#"
+        onclick="toggleMobileMenu()"
+        class="text-purple-400 border-b-2 border-purple-500"
+        >Services.</a
+      >
+      <a href="./about.html" onclick="toggleMobileMenu()" class="text-gray-400"
+        >About.</a
+      >
+      <a
+        href="Hireme.html"
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 rounded-full text-base"
+        >Hire me!</a
+      >
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h3
+          class="text-purple-500 font-bold uppercase tracking-widest text-sm mb-2"
+        >
+          My Services
+        </h3>
+        <h2
+          class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-400 to-indigo-500 text-transparent bg-clip-text"
+        >
+          What I Offer
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="border border-purple-900/20 bg-[#0c061a]/60 rounded-2xl p-8 card-3d-hover"
+        >
+          <div
+            class="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 text-purple-400 text-2xl mb-6"
+          >
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Web Development</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Building responsive, high-performance websites tailored to your
+            business needs.
+          </p>
+        </div>
+
+        <div
+          class="border border-purple-900/20 bg-[#0c061a]/60 rounded-2xl p-8 card-3d-hover"
+        >
+          <div
+            class="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 text-purple-400 text-2xl mb-6"
+          >
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Digital Troubleshooting</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Resolving system-level inconsistencies to ensure your digital
+            workflow remains seamless.
+          </p>
+        </div>
+
+        <div
+          class="border border-purple-900/20 bg-[#0c061a]/60 rounded-2xl p-8 card-3d-hover"
+        >
+          <div
+            class="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 text-purple-400 text-2xl mb-6"
+          >
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Team Collaboration</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Cooperative approach to project management, focusing on efficiency
+            and team alignment.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const icon = document.getElementById("menu-icon");
+        if (menu.classList.contains("translate-x-full")) {
+          menu.classList.remove("translate-x-full");
+          menu.classList.add("translate-x-0");
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
+        } else {
+          menu.classList.remove("translate-x-0");
+          menu.classList.add("translate-x-full");
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        }
+      }
+    </script>
+  </body>
+</html>

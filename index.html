@@ -3,7 +3,454 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MH NUR</title>
+    <title>Mahedi Hassan Nur - Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #090313;
+      }
+
+      /* Custom CSS Animations for Professional Look */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.15;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.25;
+        }
+      }
+
+      /* Enhanced 3D Float Effect */
+      @keyframes float3D {
+        0%,
+        100% {
+          transform: translateY(0px) rotateX(2deg) rotateY(3deg);
+        }
+        50% {
+          transform: translateY(-12px) rotateX(-2deg) rotateY(-3deg);
+        }
+      }
+
+      /* Animation Classes */
+      .animate-fade-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+
+      .animate-glow-1 {
+        animation: pulseGlow 8s ease-in-out infinite;
+      }
+
+      .animate-glow-2 {
+        animation: pulseGlow 10s ease-in-out infinite alternate;
+      }
+
+      /* 3D Perspective and Transform Settings */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+
+      .animate-profile-3d {
+        animation: float3D 6s ease-in-out infinite;
+        transform-style: preserve-3d;
+      }
+
+      .card-3d-hover {
+        transition:
+          transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.5s ease;
+        transform-style: preserve-3d;
+      }
+
+      /* Only enable 3D effects on laptops/desktops for better performance and mobile layout styling */
+      @media (min-width: 1024px) {
+        .card-3d-hover:hover {
+          transform: translateY(-5px) rotateX(6deg) rotateY(-6deg);
+          box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+        }
+      }
+
+      /* Delay Classes for smooth sequencing */
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+    </style>
   </head>
-  <body></body>
+  <body class="text-white min-h-screen relative overflow-x-hidden bg-[#0a0516]">
+    <div
+      class="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-900/15 blur-[80px] md:blur-[150px] rounded-full pointer-events-none animate-glow-1"
+    ></div>
+    <div
+      class="absolute top-[30%] left-[-150px] w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-violet-900/10 blur-[70px] md:blur-[130px] rounded-full pointer-events-none animate-glow-2"
+    ></div>
+
+    <div
+      id="toast"
+      class="fixed bottom-5 right-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-3 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2 font-medium border border-purple-400/20 text-sm max-w-[90vw]"
+    >
+      <i class="fa-solid fa-circle-check text-base"></i>
+      Email Address Copied!
+    </div>
+
+    <header
+      class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex justify-between items-center relative z-40 opacity-0 animate-fade-up"
+    >
+      <div
+        onclick="copyEmail()"
+        class="flex items-center gap-3 group cursor-pointer relative"
+        title="Click to copy email"
+      >
+        <div
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-purple-500 flex items-center justify-center font-bold text-lg sm:text-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text transition-transform duration-500 group-hover:rotate-[360deg]"
+        >
+          M
+        </div>
+        <span
+          id="email-text"
+          class="text-xs sm:text-sm text-gray-300 font-medium tracking-wide transition-colors group-hover:text-purple-400 flex items-center gap-1.5"
+        >
+          mhnur277@gmail.com
+          <i
+            class="fa-regular fa-copy text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-0.5 hidden sm:inline-block"
+          ></i>
+        </span>
+      </div>
+
+      <nav
+        class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold tracking-wide"
+      >
+        <a
+          href="#"
+          class="text-purple-400 border-b-2 border-purple-500 pb-1 shadow-[0_4px_12px_-4px_rgba(168,85,247,0.6)]"
+          >Home.</a
+        >
+        <a
+          href="./work.html"
+          class="text-gray-400 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full hover:after:shadow-[0_0_8px_#a855f7]"
+          >Work.</a
+        >
+        <a
+          href="./service.html"
+          class="text-gray-400 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full hover:after:shadow-[0_0_8px_#a855f7]"
+          >Services.</a
+        >
+        <a
+          href="about.html"
+          class="text-gray-400 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full hover:after:shadow-[0_0_8px_#a855f7]"
+          >About.</a
+        >
+        <a
+          href="./Hireme.html"
+          class="bg-gradient-to-r from-purple-600 to-indigo-600 px-5 py-2 sm:px-6 py-2.5 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 active:scale-95 active:translate-y-[2px] transition-all duration-300"
+          >Hire me!</a
+        >
+      </nav>
+
+      <button
+        onclick="toggleMobileMenu()"
+        class="md:hidden text-gray-300 hover:text-white p-2 focus:outline-none z-50"
+      >
+        <i
+          class="fa-solid fa-bars text-xl transition-transform duration-300"
+          id="menu-icon"
+        ></i>
+      </button>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-[#090313]/98 backdrop-blur-xl z-30 flex flex-col items-center justify-center gap-8 text-xl font-bold tracking-wider transform translate-x-full transition-transform duration-500 ease-in-out md:hidden"
+    >
+      <a
+        href="#"
+        onclick="toggleMobileMenu()"
+        class="text-purple-400 transition-colors"
+        >Home.</a
+      >
+      <a
+        href="./work.html"
+        onclick="toggleMobileMenu()"
+        class="text-gray-400 hover:text-purple-400 transition-colors"
+        >Work.</a
+      >
+      <a
+        href="./service.html"
+        onclick="toggleMobileMenu()"
+        class="text-gray-400 hover:text-purple-400 transition-colors"
+        >Services.</a
+      >
+      <a
+        href="about.html"
+        onclick="toggleMobileMenu()"
+        class="text-gray-400 hover:text-purple-400 transition-colors"
+        >About.</a
+      >
+      <a
+        href="./Hireme.html"
+        onclick="toggleMobileMenu()"
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 rounded-full font-bold shadow-lg shadow-purple-500/30 text-base mt-4"
+        >Hire me!</a
+      >
+    </div>
+
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-12 pb-16 md:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10"
+    >
+      <div
+        class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left order-2 lg:order-1 opacity-0 animate-fade-up delay-100"
+      >
+        <h3
+          class="text-lg sm:text-xl md:text-2xl font-bold tracking-wide text-gray-200"
+        >
+          Hey, I am
+        </h3>
+        <h1
+          class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-500 text-transparent bg-clip-text"
+        >
+          Mahedi Hassan Nur
+        </h1>
+        <p
+          class="text-gray-400 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base md:text-lg leading-relaxed"
+        >
+          I want to work in a reputable organization where I can utilize my
+          skills and experience to contribute to the organization's growth and
+          build my career.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-5 pt-4"
+        >
+          <a
+            href="./CV.pdf"
+            download="CV.pdf"
+            class="w-full sm:w-auto justify-center bg-gradient-to-r from-purple-600 to-indigo-600 border border-purple-400/30 px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-purple-500/10 hover:shadow-purple-500/40 hover:scale-[1.03] active:scale-[0.98] active:translate-y-[2px] transition-all duration-300 flex items-center gap-2 group cursor-pointer"
+          >
+            Download CV
+            <i
+              class="fa-solid fa-arrow-down text-sm transition-transform duration-300 group-hover:translate-y-1"
+            ></i>
+          </a>
+          <div class="flex gap-3 justify-center">
+            <a
+              href="#"
+              class="w-11 h-11 rounded-full border border-purple-500/30 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] active:scale-90 transition-all duration-300"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/mh_nur10"
+              class="w-11 h-11 rounded-full border border-purple-500/30 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] active:scale-90 transition-all duration-300"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="#"
+              class="w-11 h-11 rounded-full border border-purple-500/30 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] active:scale-90 transition-all duration-300"
+              ><i class="fa-brands fa-dribbble"></i
+            ></a>
+            <a
+              href="#"
+              class="w-11 h-11 rounded-full border border-purple-500/30 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] active:scale-90 transition-all duration-300"
+              ><i class="fa-brands fa-behance"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="lg:col-span-5 flex justify-center lg:justify-end relative order-1 lg:order-2 opacity-0 animate-fade-up delay-200 perspective-1000"
+      >
+        <div
+          class="absolute -left-10 top-1/4 text-[15rem] font-black text-white/[0.02] select-none pointer-events-none hidden lg:block"
+        >
+          N
+        </div>
+
+        <div
+          class="relative p-1 rounded-[32px] bg-gradient-to-b from-purple-500/20 to-transparent transition-all duration-500 animate-profile-3d"
+        >
+          <div
+            class="w-[260px] h-[310px] sm:w-[320px] sm:h-[380px] md:w-[350px] md:h-[410px] rounded-[28px] overflow-hidden bg-[#120a22] border border-purple-500/20 flex items-center justify-center group card-3d-hover cursor-pointer"
+          >
+            <img
+              src="./Nur-pic.png"
+              alt="Mahedi Hassan Nur Portrait"
+              class="w-full h-full object-cover brightness-110 contrast-105 transition-transform duration-700 group-hover:scale-105"
+              style="transform: translateZ(20px)"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 border-t border-purple-900/20 grid grid-cols-2 md:grid-cols-4 gap-6 sm:grid-cols-2 gap-y-8 text-center md:text-left relative z-10 opacity-0 animate-fade-up delay-300"
+    >
+      <div
+        class="flex items-center justify-center md:justify-start gap-3 group cursor-default transition-transform duration-300 hover:-translate-y-1"
+      >
+        <span
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight transition-colors duration-300 group-hover:text-purple-400"
+          >04</span
+        >
+        <span
+          class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider font-medium max-w-[80px] leading-tight text-left"
+          >Years of Experience</span
+        >
+      </div>
+      <div
+        class="flex items-center justify-center md:justify-start gap-3 group cursor-default transition-transform duration-300 hover:-translate-y-1"
+      >
+        <span
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight transition-colors duration-300 group-hover:text-purple-400"
+          >04</span
+        >
+        <span
+          class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider font-medium max-w-[80px] leading-tight text-left"
+          >Core Key Skills</span
+        >
+      </div>
+      <div
+        class="flex items-center justify-center md:justify-start gap-3 group cursor-default transition-transform duration-300 hover:-translate-y-1"
+      >
+        <span
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight transition-colors duration-300 group-hover:text-purple-400"
+          >03</span
+        >
+        <span
+          class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider font-medium max-w-[80px] leading-tight text-left"
+          >Academic Degrees</span
+        >
+      </div>
+      <div
+        class="flex items-center justify-center md:justify-start gap-3 group cursor-default transition-transform duration-300 hover:-translate-y-1"
+      >
+        <span
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight transition-colors duration-300 group-hover:text-purple-400"
+          >B.Sc</span
+        >
+        <span
+          class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider font-medium max-w-[80px] leading-tight text-left"
+          >Current Education</span
+        >
+      </div>
+    </section>
+
+    <section
+      class="bg-[#05010d] w-full py-16 sm:py-20 border-t border-purple-900/20 perspective-1000"
+    >
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-10 sm:mb-12 tracking-tight"
+        >
+          My Professional Skills
+        </h2>
+
+        <div class="space-y-4">
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-6 py-5 sm:py-6 px-5 sm:px-6 border border-purple-900/10 bg-[#0c061a]/50 text-left transition-all duration-500 group cursor-pointer rounded-xl card-3d-hover"
+          >
+            <div class="flex items-center gap-4 sm:gap-6">
+              <span
+                class="text-purple-500 font-bold text-xs sm:text-sm transition-transform duration-300 group-hover:scale-125"
+                >01</span
+              >
+              <h4
+                class="text-base sm:text-lg md:text-xl font-bold tracking-wide group-hover:text-purple-400 transition-colors duration-300"
+              >
+                COMPUTER & COMMUNICATION SKILL
+              </h4>
+            </div>
+            <p
+              class="text-gray-400 text-xs sm:text-sm md:max-w-xl md:mx-6 leading-relaxed transition-colors duration-300 group-hover:text-gray-300"
+            >
+              Proficient in basic operations and digital troubleshooting
+              alongside excellent interpersonal communication capabilities.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-6 py-5 sm:py-6 px-5 sm:px-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-left cursor-pointer rounded-xl shadow-xl shadow-purple-900/20 transition-all duration-500 hover:shadow-purple-500/40 group card-3d-hover"
+          >
+            <div class="flex items-center gap-4 sm:gap-6">
+              <span class="text-white font-bold text-xs sm:text-sm">02</span>
+              <h4
+                class="text-base sm:text-lg md:text-xl font-bold tracking-wide"
+              >
+                TEAMWORK & TIME MANAGEMENT
+              </h4>
+            </div>
+            <p
+              class="text-purple-100 text-xs sm:text-sm md:max-w-xl md:mx-6 leading-relaxed"
+            >
+              Strongly cooperative in team environments with a focused approach
+              towards deadlines and workflow optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Email Clipboard Click copy implementation
+      function copyEmail() {
+        const email = "mhnur277@gmail.com";
+        navigator.clipboard
+          .writeText(email)
+          .then(() => {
+            const toast = document.getElementById("toast");
+            toast.classList.remove("translate-y-20", "opacity-0");
+            toast.classList.add("translate-y-0", "opacity-100");
+            setTimeout(() => {
+              toast.classList.remove("translate-y-0", "opacity-100");
+              toast.classList.add("translate-y-20", "opacity-0");
+            }, 2500);
+          })
+          .catch((err) => {
+            console.error("Failed to copy text: ", err);
+          });
+      }
+
+      // Responsive Mobile Hamburger overlay system drawer toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const icon = document.getElementById("menu-icon");
+
+        if (menu.classList.contains("translate-x-full")) {
+          menu.classList.remove("translate-x-full");
+          menu.classList.add("translate-x-0");
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
+        } else {
+          menu.classList.remove("translate-x-0");
+          menu.classList.add("translate-x-full");
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        }
+      }
+    </script>
+  </body>
 </html>
